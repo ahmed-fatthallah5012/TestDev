@@ -7,24 +7,27 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>This exam is developed By Ahmed M. Saad</p>
-
+    @if (Model.Accounts != null && Model.Accounts.Any())
+    {
     <table class="table table-striped">
         <thead>
-        <tr>
-            <th>Top Level Account</th>
-            <th>Total Balance</th>
-        </tr>
+            <tr>
+                <th>Top Level Account</th>
+                <th>Total Balance</th>
+            </tr>
         </thead>
         <tbody>
-        @foreach (var item in Model.Accounts)
-        {
-            <tr ondblclick="callToGetDetail('@item.Id')">
-                <td>@item.Id</td>
-                <td>@Math.Round(item.Total, 0)</td>
-            </tr>
-        }
+            @foreach (var item in Model.Accounts)
+            {
+                <tr ondblclick="callToGetDetail('@item.Id')">
+                    <td>@item.Id</td>
+                    <td>@Math.Round(item.Total, 0)</td>
+                </tr>
+            }
         </tbody>
     </table>
+    }
+
 </div>
 
 <script>
